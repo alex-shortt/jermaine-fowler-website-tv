@@ -4,18 +4,19 @@ import { Redirect, Route, Switch } from "react-router-dom"
 
 const View = React.lazy(() => import("scenes/View"))
 
-const Content = styled.div`
-  margin-top: 64px;
-  min-height: calc(100vh - 64px - 120px);
+const Viewport = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
 `
 
 export default function SiteUserView() {
   return (
-      <Content>
-        <Switch>
-          <Route exact path="/" component={View} />
-          <Redirect to="/" />
-        </Switch>
-      </Content>
+    <Viewport>
+      <Switch>
+        <Route exact path="/" component={View} />
+        <Redirect to="/" />
+      </Switch>
+    </Viewport>
   )
 }

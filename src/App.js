@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import useReactRouter from "use-react-router"
 
-import { AuthProvider } from "services/auth"
 import GlobalStyles from "styles/globalStyles"
 import FullScreenLoading from "components/FullScreenLoading"
 import ScrollToTop from "components/ScrollToTop"
@@ -21,17 +20,15 @@ export default function App() {
     <>
       <GlobalStyles />
       <React.Suspense fallback={<FullScreenLoading />}>
-        <AuthProvider>
-          <Router>
-            <GoogleAnalytics />
-            <ScrollToTop>
-              <Switch>
-                <Route path="/" component={SiteUserView} />
-                {/* TODO: 404 Page */}
-              </Switch>
-            </ScrollToTop>
-          </Router>
-        </AuthProvider>
+        <Router>
+          <GoogleAnalytics />
+          <ScrollToTop>
+            <Switch>
+              <Route path="/" component={SiteUserView} />
+              {/* TODO: 404 Page */}
+            </Switch>
+          </ScrollToTop>
+        </Router>
       </React.Suspense>
     </>
   )
