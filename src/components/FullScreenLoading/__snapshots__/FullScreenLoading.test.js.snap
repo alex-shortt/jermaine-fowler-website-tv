@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+.c0 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(135deg,rgba(13, 23, 187, 0.93),#a90a77);
+  background-size: 400% 400%;
+  -webkit-animation: cmLSLH 60s ease infinite;
+  animation: cmLSLH 60s ease infinite;
+  color: #fff;
+}
+
+<div
+  className="c0"
+/>
+`;
