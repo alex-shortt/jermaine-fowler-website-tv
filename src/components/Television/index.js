@@ -1,12 +1,21 @@
 import React from "react"
 import styled from "styled-components/macro"
 
-import Monitor from "assets/television/Monitor"
+import MonitorBase from "assets/television/Monitor"
+
+import Screen from "./components/Screen"
+import Cursor from "./components/Cursor"
 
 const Container = styled.div`
   position: relative;
   width: 48rem;
   height: 48rem;
+`
+
+const Monitor = styled(MonitorBase)`
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
 `
 
 const Display = styled.div`
@@ -17,14 +26,17 @@ const Display = styled.div`
   top: 9%;
   background: red;
   opacity: 0.7;
-  z-index: -1;
+  cursor: none;
 `
 
 export default function Television(props) {
   return (
     <Container>
       <Monitor />
-      <Display />
+      <Display>
+        <Cursor />
+        <Screen />
+      </Display>
     </Container>
   )
 }
