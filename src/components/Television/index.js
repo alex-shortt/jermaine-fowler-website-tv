@@ -20,22 +20,37 @@ const Monitor = styled(MonitorBase)`
 
 const Display = styled.div`
   position: absolute;
-  width: 90%;
-  left: 5%;
-  height: 70%;
-  top: 9%;
-  background: red;
+  width: 87.5%;
+  left: 6.5%;
+  height: 66.5%;
+  top: 11%;
   opacity: 0.7;
   cursor: none;
 `
 
+const Content = styled.div`
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  color: black;
+  padding: 10px;
+  box-sizing: border-box;
+`
+
 export default function Television(props) {
+  const { children } = props
+
   return (
     <Container>
       <Monitor />
       <Display>
         <Cursor />
         <Screen />
+        <Content>{children}</Content>
       </Display>
     </Container>
   )

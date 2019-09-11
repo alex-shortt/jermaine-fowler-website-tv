@@ -1,15 +1,22 @@
 import { createGlobalStyle } from "styled-components/macro"
+
 import "typeface-roboto"
 import "normalize.css"
+import VCR from "assets/fonts/VCR_OSD_MONO_1.001.ttf"
 
 import "./fontawesome"
 
 export default createGlobalStyle`
+  @font-face {
+    font-family: "VCR";
+    src: url(${VCR});
+  }
+  
   body {
     text: white;
-    font-family: Avenir, Lato, Roboto, sans-serif;
+    font-family: "VCR", Avenir, Lato, Roboto, sans-serif;
     overflow: auto;
-    overflow-x: hidden;
+    background: #070707;
   }
   
   html, body {
