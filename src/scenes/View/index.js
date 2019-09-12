@@ -7,36 +7,41 @@ import Television from "components/Television"
 import Main from "scenes/Pages/Main"
 import { buildPlane } from "services/plane"
 
+import Camera from "./components/Camera"
+
 const Row = styled.div`
   display: flex;
 `
 
 export default function View(props) {
   const [plane, setPlane] = useState(null)
-
-  const pages = [{ content: Main, position: [0, 0] }]
+  const [position, setPosition] = useState([0, 0])
 
   useEffect(() => {
     if (!plane) {
+      const pages = [{ content: Main, position: [0, 0] }]
       const builtPlane = buildPlane(pages)
       setPlane(builtPlane)
     }
-  }, [pages, plane])
+  }, [plane])
+
+  if (!plane) {
+    return <></>
+  }
 
   return (
     <>
       <Helmet title="View" />
-      <div>
-        {plane &&
-          plane.map(row => {
-            return (
-              <Row key={uuid()}>
-                {row.map(item => renderItem(item))}
-                <br />
-              </Row>
-            )
-          })}
-      </div>
+      <Camera position={position}>
+        {plane.map(row => {
+          return (
+            <Row key={uuid()}>
+              {row.map(item => renderItem(item))}
+              <br />
+            </Row>
+          )
+        })}
+      </Camera>
     </>
   )
 }
@@ -44,7 +49,7 @@ export default function View(props) {
 function renderItem(item) {
   const { hidden, content: Content, id } = item
   return (
-    <Television key={id} hidden={hidden}>
+    <Television className="television" key={id} hidden={hidden}>
       {Content && <Content />}
     </Television>
   )
