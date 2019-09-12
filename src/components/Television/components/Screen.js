@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import styled from "styled-components/macro"
 
 import { flickerAnim } from "./animations"
@@ -40,9 +40,12 @@ const Display = styled.div`
     z-index: 7;
     pointer-events: none;
     animation: ${flickerAnim} 0.15s infinite;
+    animation-delay: ${props => props.delay}s;
   }
 `
 
 export default function Screen(props) {
-  return <Display />
+  const animDelay = useRef(Math.random())
+
+  return <Display delay={animDelay.current} />
 }
