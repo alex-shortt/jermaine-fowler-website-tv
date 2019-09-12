@@ -5,7 +5,7 @@ const Container = styled.div`
   position: absolute;
   top: ${props => props.y}px;
   left: ${props => props.x}px;
-  transition: all 1s ease-in-out;
+  transition: all ${props => props.timing}s ease-in-out;
 `
 
 function getItemSideLength() {
@@ -24,6 +24,7 @@ function getItemSideLength() {
 export default function Camera(props) {
   const { position, children } = props
 
+  const [animTiming, setAnimTiming] = useState(1)
   const [posX, setPosX] = useState(0)
   const [posY, setPosY] = useState(0)
 
@@ -37,6 +38,12 @@ export default function Camera(props) {
       const midYPos = sideLength * 0.5 + sideLength * position[1]
       const y = -midYPos + window.innerHeight / 2
 
+      const velocity = 800 // wtf is this unit
+      const xDist = Math.abs(posX - x)
+      const yDist = Math.abs(posY - y)
+      const linearDist = Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2))
+
+      setAnimTiming(linearDist / velocity)
       setPosX(x)
       setPosY(y)
     }
@@ -44,10 +51,10 @@ export default function Camera(props) {
     fixPosition()
 
     window.onresize = fixPosition
-  }, [position])
+  }, [posX, posY, position])
 
   return (
-    <Container x={posX} y={posY}>
+    <Container x={posX} y={posY} timing={animTiming}>
       {children}
     </Container>
   )
