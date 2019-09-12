@@ -13,7 +13,6 @@ export default createGlobalStyle`
   }
   
   body {
-    text: white;
     font-family: "VCR", Avenir, Lato, Roboto, sans-serif;
     overflow: auto;
     background: #070707;
@@ -22,5 +21,6 @@ export default createGlobalStyle`
   html, body {
     height: 100%;
     width: 100%;
+    overflow: hidden;
   }
 `

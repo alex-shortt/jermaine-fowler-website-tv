@@ -8,8 +8,10 @@ import Cursor from "./components/Cursor"
 
 const Container = styled.div`
   position: relative;
-  width: 48rem;
-  height: 48rem;
+  width: 36rem;
+  height: 36rem;
+  margin: 3rem;
+  ${props => props.hidden && "opacity: 0; display: block;"}
 `
 
 const Monitor = styled(MonitorBase)`
@@ -25,7 +27,7 @@ const Display = styled.div`
   height: 66.5%;
   top: 11%;
   opacity: 0.7;
-  cursor: none;
+  //cursor: none;
 `
 
 const Content = styled.div`
@@ -39,16 +41,17 @@ const Content = styled.div`
   color: black;
   padding: 10px;
   box-sizing: border-box;
+  overflow-y: auto;
 `
 
 export default function Television(props) {
-  const { children } = props
+  const { children, hidden, ...restProps } = props
 
   return (
-    <Container>
+    <Container hidden={hidden} {...restProps}>
       <Monitor />
       <Display>
-        <Cursor />
+        {/* <Cursor /> */}
         <Screen />
         <Content>{children}</Content>
       </Display>
