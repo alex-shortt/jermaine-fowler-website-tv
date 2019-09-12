@@ -5,6 +5,7 @@ import uuid from "uuid/v1"
 import Helmet from "components/Helmet"
 import Television from "components/Television"
 import Main from "scenes/Pages/Main"
+import About from "scenes/Pages/About"
 import { buildPlane } from "services/plane"
 
 import Camera from "./components/Camera"
@@ -14,12 +15,20 @@ const Row = styled.div`
 `
 
 export default function View(props) {
+  const {
+    match: {
+      params: { page }
+    }
+  } = props
+
   const [plane, setPlane] = useState(null)
-  const [position, setPosition] = useState([0, 0])
 
   useEffect(() => {
     if (!plane) {
-      const pages = [{ content: Main, position: [0, 0] }]
+      const pages = [
+        { path: "", content: Main, coords: [1, 1] },
+        { path: "dicks", content: About, coords: [0, 0] }
+      ]
       const builtPlane = buildPlane(pages)
       setPlane(builtPlane)
     }
@@ -30,19 +39,12 @@ export default function View(props) {
   }
 
   return (
-    <>
-      <Helmet title="View" />
-      <Camera position={position}>
-        {plane.map(row => {
-          return (
-            <Row key={uuid()}>
-              {row.map(item => renderItem(item))}
-              <br />
-            </Row>
-          )
-        })}
-      </Camera>
-    </>
+    <Camera page={page} plane={plane}>
+      {plane.map((row, i) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <Row key={`row-${i}`}>{row.map(item => renderItem(item))}</Row>
+      ))}
+    </Camera>
   )
 }
 

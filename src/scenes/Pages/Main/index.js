@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 import Helmet from "components/Helmet"
 
@@ -6,6 +7,7 @@ export default function Main(props) {
   return (
     <>
       <Helmet title="Main" />
+      <Link to="/dicks">Helooooo</Link>
       Last login: Fri Sep 6 13:59:28 on console <br />
       Alexs-MBP-8:programming alex$ git clone
       https://github.com/metaplug/metaplug-serverless.git <br />

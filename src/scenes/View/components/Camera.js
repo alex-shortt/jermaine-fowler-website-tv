@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components/macro"
 
+import { getPagePosition } from "services/plane"
+
 const Container = styled.div`
   position: absolute;
   top: ${props => props.y}px;
@@ -22,23 +24,25 @@ function getItemSideLength() {
 }
 
 export default function Camera(props) {
-  const { position, children } = props
+  const { page, plane, children } = props
 
   const [animTiming, setAnimTiming] = useState(1)
   const [posX, setPosX] = useState(0)
   const [posY, setPosY] = useState(0)
 
   useEffect(() => {
-    function fixPosition() {
+    const fixPosition = () => {
+      const newCoords = getPagePosition(plane, page) || [1, 1]
+
       const sideLength = getItemSideLength()
 
-      const midXPos = sideLength * 0.5 + sideLength * position[0]
+      const midXPos = sideLength * 0.5 + sideLength * newCoords[0]
       const x = -midXPos + window.innerWidth / 2
 
-      const midYPos = sideLength * 0.5 + sideLength * position[1]
+      const midYPos = sideLength * 0.5 + sideLength * newCoords[1]
       const y = -midYPos + window.innerHeight / 2
 
-      const velocity = 800 // wtf is this unit
+      const velocity = 450 // wtf is this unit
       const xDist = Math.abs(posX - x)
       const yDist = Math.abs(posY - y)
       const linearDist = Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2))
@@ -51,7 +55,7 @@ export default function Camera(props) {
     fixPosition()
 
     window.onresize = fixPosition
-  }, [posX, posY, position])
+  }, [page, plane, posX, posY])
 
   return (
     <Container x={posX} y={posY} timing={animTiming}>

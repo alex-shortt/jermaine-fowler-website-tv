@@ -15,7 +15,7 @@ export function buildPlane(pages) {
       }
 
       const fixedPage = pages.find(
-        page => page.position[0] === x && page.position[1] === y
+        page => page.coords[0] === x && page.coords[1] === y
       )
 
       if (fixedPage) {
@@ -40,4 +40,16 @@ function pickRandomPage() {
   const weights = [0.25, 0.5, 0.3]
 
   return { ...chance.weighted(pages, weights) }
+}
+
+export function getPagePosition(plane, page = "") {
+  for (let x = 0; x < plane.length; x += 1) {
+    for (let y = 0; y < plane[x].length; y += 1) {
+      if (plane[x][y].path === page) {
+        return [x, y]
+      }
+    }
+  }
+
+  return null
 }
