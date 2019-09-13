@@ -39,13 +39,14 @@ const Display = styled.div`
     opacity: 0;
     z-index: 7;
     pointer-events: none;
-    animation: ${flickerAnim} 0.15s infinite;
+    animation: ${flickerAnim} ${props => props.duration}s infinite;
     animation-delay: ${props => props.delay}s;
   }
 `
 
 export default function Screen(props) {
   const animDelay = useRef(Math.random())
+  const animDuration = useRef(0.13 + Math.random() * 0.6)
 
-  return <Display delay={animDelay.current} />
+  return <Display delay={animDelay.current} duration={animDuration} />
 }

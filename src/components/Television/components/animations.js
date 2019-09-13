@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components/macro"
+import { keyframes } from "styled-components/macro"
 
 export const flickerAnim = keyframes`
   0%{opacity:.11873}
@@ -22,14 +22,11 @@ export const flickerAnim = keyframes`
   90%{opacity:.85323}
   95%{opacity:.77558}
   100%{opacity:.23705}
-  //{
-  //  $steps: 20;
-  //  @for $i from 0 through $steps {
-  //    #{percentage($i * (1/$steps))} {
-  //      opacity: random();
-  //    }
-  //  }
-  //}
+`
+
+export const breatheAnim = keyframes`
+  0%, 100% {opacity: 1}
+  50% {opacity: 0.5}
 `
 
 export const turnOnAnim = keyframes`
