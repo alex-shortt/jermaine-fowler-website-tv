@@ -12,20 +12,6 @@ const OS = styled.div`
   height: 100%;
 `
 
-const Content = styled.div`
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #0f0f0f;
-  color: #46ff00;
-  padding: 10px;
-  box-sizing: border-box;
-  overflow-y: auto;
-`
-
 const Container = styled.div`
   position: absolute;
   width: 87.5%;
@@ -36,6 +22,32 @@ const Container = styled.div`
   overflow: hidden;
 `
 
+const Content = styled.div`
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f0f0f;
+  color: #46ff00;
+  box-sizing: border-box;
+  overflow-y: auto;
+
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 900;
+  filter: blur(0.7px);
+
+  & a {
+    text-decoration: none;
+    transition: filter 0.15s linear;
+
+    &:hover {
+      filter: blur(1.5px);
+    }
+  }
+`
 export default function Display(props) {
   const { children, on } = props
 

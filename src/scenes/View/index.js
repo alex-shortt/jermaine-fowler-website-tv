@@ -28,7 +28,7 @@ export default function View(props) {
     if (!plane) {
       const pages = [
         { path: "", content: Main, coords: [4, 3] },
-        { path: "dicks", content: About, coords: [2, 4] }
+        { path: "about", content: About, coords: [2, 4] }
       ]
       const builtPlane = buildPlane(pages, [8, 8])
       setPlane(builtPlane)
