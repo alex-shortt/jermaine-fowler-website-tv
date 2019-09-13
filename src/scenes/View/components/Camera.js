@@ -5,6 +5,7 @@ import { getPagePosition } from "services/plane"
 
 const Container = styled.div`
   position: absolute;
+  display: flex;
   top: ${props => props.y}px;
   left: ${props => props.x}px;
   transition: all ${props => props.timing}s ease-in-out;

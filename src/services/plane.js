@@ -4,12 +4,11 @@ import Chance from "chance"
 
 const chance = new Chance()
 
-export function buildPlane(pages) {
+export function buildPlane(pages, dimensions) {
   const plane = []
-  const numPages = pages.length * 3
 
-  for (let x = 0; x < numPages; x += 1) {
-    for (let y = 0; y < numPages; y += 1) {
+  for (let x = 0; x < dimensions[0]; x += 1) {
+    for (let y = 0; y < dimensions[1]; y += 1) {
       if (!plane[x]) {
         plane[x] = []
       }
@@ -19,6 +18,7 @@ export function buildPlane(pages) {
       )
 
       if (fixedPage) {
+        console.log("fixed", fixedPage)
         plane[x][y] = fixedPage
       } else {
         plane[x][y] = pickRandomPage()
@@ -37,7 +37,7 @@ const pageBroken = { broken: true }
 
 function pickRandomPage() {
   const pages = [pageNone, pageNormal, pageBroken]
-  const weights = [0.25, 0.5, 0.3]
+  const weights = [1, 3, 1]
 
   return { ...chance.weighted(pages, weights) }
 }

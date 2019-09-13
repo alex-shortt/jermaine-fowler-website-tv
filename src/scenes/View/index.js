@@ -12,6 +12,7 @@ import Camera from "./components/Camera"
 
 const Row = styled.div`
   display: flex;
+  flex-direction: column;
 `
 
 export default function View(props) {
@@ -26,10 +27,10 @@ export default function View(props) {
   useEffect(() => {
     if (!plane) {
       const pages = [
-        { path: "", content: Main, coords: [1, 1] },
-        { path: "dicks", content: About, coords: [0, 0] }
+        { path: "", content: Main, coords: [4, 3] },
+        { path: "dicks", content: About, coords: [2, 4] }
       ]
-      const builtPlane = buildPlane(pages)
+      const builtPlane = buildPlane(pages, [8, 8])
       setPlane(builtPlane)
     }
   }, [plane])
