@@ -19,7 +19,7 @@ const Container = styled.div`
   ${props => !props.on && "opacity: 0 !important"};
 `
 
-export default function PowerButton(props) {
+export default function Brightness(props) {
   const { on } = props
 
   return <Container on={on} />

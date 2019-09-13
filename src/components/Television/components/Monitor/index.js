@@ -5,6 +5,7 @@ import MonitorSVGBase from "assets/television/Monitor"
 import logo from "assets/television/logo.png"
 
 import PowerButton from "./components/PowerButton"
+import Lights from "./components/Lights"
 
 const MonitorSVG = styled(MonitorSVGBase)`
   pointer-events: none;
@@ -25,12 +26,13 @@ const Container = styled.div`
 `
 
 export default function Monitor(props) {
-  const { onClick } = props
+  const { on, onClick } = props
 
   return (
     <Container>
       <MonitorSVG {...props} />
       <Logo />
+      <Lights on={on} />
       <PowerButton onClick={onClick} />
     </Container>
   )

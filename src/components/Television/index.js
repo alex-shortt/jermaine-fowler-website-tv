@@ -23,7 +23,7 @@ export default function Television(props) {
   return (
     <Container hidden={hidden} {...restProps}>
       <Brightness on={on} />
-      <Monitor onClick={toggleOn} />
+      <Monitor on={on} onClick={toggleOn} />
       <Display on={on}>{children}</Display>
     </Container>
   )
