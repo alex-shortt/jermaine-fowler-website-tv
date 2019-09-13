@@ -1,8 +1,9 @@
 import React from "react"
 import styled from "styled-components/macro"
 
-import Screen from "./Screen"
-import { turnOffAnim, turnOnAnim } from "./animations"
+import { turnOffAnim, turnOnAnim } from "../../styles/animations"
+
+import Screen from "./components/Screen"
 
 const OS = styled.div`
   animation: ${props => (props.on ? turnOnAnim : turnOffAnim)}

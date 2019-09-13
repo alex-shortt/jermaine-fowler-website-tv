@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components/macro"
 
-import { breatheAnim } from "./animations"
+import { breatheAnim } from "../styles/animations"
 
 const Container = styled.div`
   position: absolute;

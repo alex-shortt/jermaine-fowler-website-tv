@@ -4,7 +4,7 @@ import styled from "styled-components/macro"
 import MonitorSVGBase from "assets/television/Monitor"
 import logo from "assets/television/logo.png"
 
-import PowerButton from "./PowerButton"
+import PowerButton from "./components/PowerButton"
 
 const MonitorSVG = styled(MonitorSVGBase)`
   pointer-events: none;

@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import styled from "styled-components/macro"
 
-import { flickerAnim } from "./animations"
+import { flickerAnim } from "../../../styles/animations"
 
 const Display = styled.div`
   &:before {
