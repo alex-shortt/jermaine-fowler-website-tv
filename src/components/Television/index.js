@@ -9,7 +9,7 @@ const Container = styled.div`
   position: relative;
   width: 36rem;
   height: 36rem;
-  margin: 7rem;
+  margin: 5rem;
   ${props => props.hidden && "opacity: 0; display: block;"}
 `
 

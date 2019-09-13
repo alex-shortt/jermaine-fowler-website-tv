@@ -15,8 +15,8 @@ const Container = styled.div`
     inset 0px 0px 24px rgba(255, 255, 255, 0.15);
   pointer-events: none;
   animation: ${breatheAnim} 5s infinite ease-in-out;
-  transition: opacity 1s ease-out;
-  ${props => !props.on && "opacity: 0 !important"};
+  transition: box-shadow 1s ease-out;
+  ${props => !props.on && "box-shadow: none !important"};
 `
 
 export default function Brightness(props) {
