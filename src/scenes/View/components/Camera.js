@@ -3,11 +3,13 @@ import styled from "styled-components/macro"
 
 import { getPagePosition } from "services/plane"
 
-const Container = styled.div`
+const Container = styled.div.attrs(props => ({
+  style: { transform: `translateX(${props.x}px) translateY(${props.y}px)` }
+}))`
   position: absolute;
   display: flex;
-  top: ${props => props.y}px;
-  left: ${props => props.x}px;
+  top: 0;
+  left: 0;
   transition: all ${props => props.timing}s ease-in-out;
 `
 
@@ -43,7 +45,7 @@ export default function Camera(props) {
       const midYPos = sideLength * 0.5 + sideLength * newCoords[1]
       const y = -midYPos + window.innerHeight / 2
 
-      const velocity = 450 // wtf is this unit
+      const velocity = 1450 // wtf is this unit
       const xDist = Math.abs(posX - x)
       const yDist = Math.abs(posY - y)
       const linearDist = Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2))
