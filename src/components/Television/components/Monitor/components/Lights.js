@@ -3,7 +3,7 @@ import styled from "styled-components/macro"
 
 const Container = styled.div`
   position: absolute;
-  bottom: 12%;
+  bottom: 7%;
   left: 10%;
   width: 25%;
   height: 5%;

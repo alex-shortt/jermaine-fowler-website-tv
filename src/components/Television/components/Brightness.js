@@ -5,18 +5,17 @@ import { breatheAnim } from "../styles/animations"
 
 const Container = styled.div`
   position: absolute;
-  width: 84.5%;
-  left: 8%;
-  height: 64%;
-  top: 12.5%;
-  opacity: 0.7;
+  width: 40vw;
+  left: 50%;
+  height: 40vw;
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
-  box-shadow: 0px 2px 140px rgba(214, 214, 214, 0.2),
-    inset 0px 0px 24px rgba(255, 255, 255, 0.15);
+  background: radial-gradient(circle at center,#ffffff47,#ffffff00 90%) no-repeat;
   pointer-events: none;
-  animation: ${breatheAnim} 5s infinite ease-in-out;
-  transition: box-shadow 1s ease-out;
-  ${props => !props.on && "box-shadow: none !important"};
+  //animation: ${breatheAnim} 5s infinite ease-in-out;
+  transition: opacity 3s ease-out;
+  opacity: ${props => (props.on ? "0.9" : "0")};
 `
 
 export default function Brightness(props) {

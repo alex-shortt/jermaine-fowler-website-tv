@@ -5,23 +5,28 @@ import Brightness from "./components/Brightness"
 import Monitor from "./components/Monitor"
 import Display from "./components/Display"
 
+const width = 36
+const height = width * 0.9389
+
 const Container = styled.div`
   position: relative;
-  width: 36rem;
-  height: 36rem;
-  margin: 5rem;
-  ${props => props.hidden && "opacity: 0; display: block;"}
+  width: ${width}rem;
+  height: ${height}rem;
+  margin: 5px;
+  filter: brightness(${props => (props.on ? "1" : "0.7")});
+  ${props => props.hidden && "opacity: 0; display: block;"};
+  transition: filter ${props => (props.on ? "5" : "0.7")}s ease-in;
 `
 
 export default function Television(props) {
-  const { children, hidden, ...restProps } = props
+  const { children, hidden, initOn, ...restProps } = props
 
-  const [on, setOn] = useState(true)
+  const [on, setOn] = useState(initOn === "true")
 
   const toggleOn = useCallback(() => setOn(!on), [on])
 
   return (
-    <Container hidden={hidden} {...restProps}>
+    <Container hidden={hidden} on={on} {...restProps}>
       <Brightness on={on} />
       <Monitor on={on} onClick={toggleOn} />
       <Display on={on}>{children}</Display>

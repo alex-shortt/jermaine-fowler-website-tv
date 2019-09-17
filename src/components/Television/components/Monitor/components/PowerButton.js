@@ -4,7 +4,7 @@ import styled from "styled-components/macro"
 const Button = styled.button`
   z-index: 1;
   position: absolute;
-  bottom: 12%;
+  bottom: 7%;
   right: 20%;
   height: 26px;
   width: 26px;

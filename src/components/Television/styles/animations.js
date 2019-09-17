@@ -26,7 +26,7 @@ export const flickerAnim = keyframes`
 
 export const breatheAnim = keyframes`
   0%, 100% {opacity: 1}
-  50% {opacity: 0.5}
+  50% {opacity: 0.2}
 `
 
 export const turnOnAnim = keyframes`

@@ -14,10 +14,10 @@ const MonitorSVG = styled(MonitorSVGBase)`
 
 const Logo = styled.img.attrs({ src: logo })`
   position: absolute;
-  bottom: 7.2%;
+  bottom: 2%;
   left: 50%;
   transform: translateX(-50%);
-  height: 9%;
+  height: 8%;
   opacity: 0.6;
 `
 

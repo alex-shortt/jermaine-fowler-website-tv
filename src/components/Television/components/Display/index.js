@@ -16,10 +16,12 @@ const Container = styled.div`
   position: absolute;
   width: 87.5%;
   left: 6.5%;
-  height: 66.5%;
-  top: 11%;
-  opacity: 0.7;
+  height: 71%;
+  top: 11.5%;
+  filter: brightness(1.2);
   overflow: hidden;
+  background: black;
+  z-index: -1;
 `
 
 const Content = styled.div`
@@ -29,7 +31,7 @@ const Content = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: #0f0f0f;
+  background: #292929;
   color: #46ff00;
   box-sizing: border-box;
   overflow-y: auto;
@@ -38,6 +40,8 @@ const Content = styled.div`
   color: white;
   font-weight: 900;
   filter: blur(0.7px);
+
+  box-shadow: inset 0px 0px 24px rgba(255, 255, 255, 0.15);
 
   & a {
     text-decoration: none;
