@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components/macro"
-import uuid from "uuid/v1"
 
-import Helmet from "components/Helmet"
 import Television from "components/Television"
 import Main from "scenes/Pages/Main"
 import About from "scenes/Pages/About"
@@ -27,7 +25,7 @@ export default function View(props) {
   useEffect(() => {
     if (!plane) {
       const pages = [
-        { path: "", content: Main, coords: [4, 3] },
+        { path: "", content: Main, coords: [4, 3], initOn: "true" },
         { path: "about", content: About, coords: [2, 4] }
       ]
       const builtPlane = buildPlane(pages, [8, 8])
@@ -41,18 +39,19 @@ export default function View(props) {
 
   return (
     <Camera page={page} plane={plane}>
-      {plane.map((row, i) => (
+      {plane.map((row, x) => (
         // eslint-disable-next-line react/no-array-index-key
-        <Row key={`row-${i}`}>{row.map(item => renderItem(item))}</Row>
+        <Row key={`row-${x}`}>{row.map(item => renderItem(item))}</Row>
       ))}
     </Camera>
   )
 }
 
 function renderItem(item) {
-  const { hidden, content: Content, id } = item
+  const { hidden, content: Content, id, initOn } = item
+
   return (
-    <Television className="television" key={id} hidden={hidden}>
+    <Television className="television" key={id} hidden={hidden} initOn={initOn}>
       {Content && <Content />}
     </Television>
   )

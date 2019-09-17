@@ -37,7 +37,7 @@ const pageBroken = { broken: true }
 
 function pickRandomPage() {
   const pages = [pageNone, pageNormal, pageBroken]
-  const weights = [1, 3, 1]
+  const weights = [0, 3, 1]
 
   return { ...chance.weighted(pages, weights) }
 }
