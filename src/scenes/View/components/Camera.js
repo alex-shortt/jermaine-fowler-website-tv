@@ -13,17 +13,21 @@ const Container = styled.div.attrs(props => ({
   transition: all ${props => props.timing}s ease-in-out;
 `
 
-function getItemSideLength() {
+function getItemSideDimensions() {
   const element = document.getElementsByClassName("television")[0]
 
   const style = element.currentStyle || window.getComputedStyle(element)
   const width = element.offsetWidth
+  const height = element.offsetHeight
   const margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight)
   const padding = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight)
   const border =
     parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth)
 
-  return width + margin - padding + border
+  return {
+    width: width + margin - padding + border,
+    height: height + margin - padding + border
+  }
 }
 
 export default function Camera(props) {
@@ -37,12 +41,12 @@ export default function Camera(props) {
     const fixPosition = () => {
       const newCoords = getPagePosition(plane, page) || [1, 1]
 
-      const sideLength = getItemSideLength()
+      const { width, height } = getItemSideDimensions()
 
-      const midXPos = sideLength * 0.5 + sideLength * newCoords[0]
+      const midXPos = width * 0.5 + width * newCoords[0]
       const x = -midXPos + window.innerWidth / 2
 
-      const midYPos = sideLength * 0.5 + sideLength * newCoords[1]
+      const midYPos = height * 0.5 + height * newCoords[1]
       const y = -midYPos + window.innerHeight / 2
 
       const velocity = 1450 // wtf is this unit
