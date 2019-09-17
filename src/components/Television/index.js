@@ -4,6 +4,7 @@ import styled from "styled-components/macro"
 import Brightness from "./components/Brightness"
 import Monitor from "./components/Monitor"
 import Display from "./components/Display"
+import Static from "./components/Static"
 
 const width = 36
 const height = width * 0.9389
@@ -19,7 +20,7 @@ const Container = styled.div`
 `
 
 export default function Television(props) {
-  const { children, hidden, initOn, ...restProps } = props
+  const { children, hidden, initOn, broken, ...restProps } = props
 
   const [on, setOn] = useState(initOn === "true")
 
@@ -29,7 +30,7 @@ export default function Television(props) {
     <Container hidden={hidden} on={on} {...restProps}>
       <Brightness on={on} />
       <Monitor on={on} onClick={toggleOn} />
-      <Display on={on}>{children}</Display>
+      <Display on={on}>{children || (broken && <Static on={on} />)}</Display>
     </Container>
   )
 }
