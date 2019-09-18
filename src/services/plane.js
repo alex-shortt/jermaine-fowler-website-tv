@@ -34,12 +34,14 @@ export function buildPlane(pages, dimensions) {
 const pageNone = { hidden: true }
 const pageNormal = {}
 const pageBroken = { broken: true }
+const pageSurveillance = { surveillance: true }
 
 function pickRandomPage() {
-  const pages = [pageNone, pageNormal, pageBroken]
-  const weights = [0, 3, 2]
+  const pages = [pageNone, pageNormal, pageBroken, pageSurveillance]
+  const weights = [0.35, 5, 2, 200]
+  const initOn = Math.random() > 0.8 ? "true" : "false"
 
-  return { ...chance.weighted(pages, weights) }
+  return { ...chance.weighted(pages, weights), initOn }
 }
 
 export function getPagePosition(plane, page = "") {

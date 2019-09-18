@@ -79,6 +79,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "chance": "^1.1.0",
     "mixpanel-browser": "^2.29.0",
+    "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
     "query-string": "^6.4.2",
     "react": "^16.8.6",

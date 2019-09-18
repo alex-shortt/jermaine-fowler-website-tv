@@ -48,16 +48,10 @@ export default function View(props) {
 }
 
 function renderItem(item) {
-  const { hidden, content: Content, id, initOn, broken } = item
+  const { hidden, content: Content, id, ...itemProps } = item
 
   return (
-    <Television
-      className="television"
-      key={id}
-      hidden={hidden}
-      initOn={initOn}
-      broken={broken}
-    >
+    <Television className="television" key={id} {...itemProps}>
       {Content && <Content />}
     </Television>
   )
