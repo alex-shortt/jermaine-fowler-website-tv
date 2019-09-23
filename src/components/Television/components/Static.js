@@ -6,15 +6,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-`
-
-const Overlay = styled.div`
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  filter: brightness(0.7);
   background: radial-gradient(
     ellipse at center,
     rgba(0, 0, 0, 0) 0%,
@@ -51,6 +43,7 @@ export default memo(props => {
   const { on } = props
 
   const canvas = useRef()
+  const animOffset = useRef(Math.random() * 40)
   const [running, setRunning] = useState("false")
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
@@ -68,7 +61,7 @@ export default memo(props => {
         pix[i + 2] = color
       }
       ctx.putImageData(imgData, 0, 0)
-      setTimeout(update, 30)
+      setTimeout(() => update(), 100)
     } else {
       setRunning("false")
     }
@@ -87,17 +80,16 @@ export default memo(props => {
       ctx.fillRect(0, 0, WIDTH, HEIGHT)
       ctx.fill()
     } else if (on && running === "false") {
-      setTimeout(update, 30)
+      setTimeout(() => update(), 100)
     }
   }, [height, on, running, update, width])
 
   return (
     <Container>
-      <Overlay />
       <Canvas ref={canvas} />
-      <Frame delay={0} />
-      <Frame delay={4} />
-      <Frame delay={8} />
+      <Frame delay={0 - animOffset.current} />
+      <Frame delay={4 - animOffset.current} />
+      <Frame delay={8 - animOffset.current} />
     </Container>
   )
 })

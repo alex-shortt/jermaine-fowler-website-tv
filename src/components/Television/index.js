@@ -51,7 +51,7 @@ export default memo(props => {
       <Container hidden={hidden} on={on} {...restProps}>
         <Monitor on={on} onClick={!hidden && toggleOn} />
         <Display on={on}>
-          <Content {...props} />
+          <Content on={on} {...props} />
         </Display>
       </Container>
     </>
