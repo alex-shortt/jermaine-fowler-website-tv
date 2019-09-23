@@ -39,16 +39,16 @@ const Content = styled.div`
   font-size: 1.5rem;
   color: white;
   font-weight: 900;
-  filter: blur(0.7px);
+  //filter: blur(0.5px);
 
   box-shadow: inset 0px 0px 24px rgba(255, 255, 255, 0.15);
 
   & a {
     text-decoration: none;
-    transition: filter 0.15s linear;
+    transition: opacity 0.15s linear;
 
     &:hover {
-      filter: blur(1.5px);
+      opacity: 0.5;
     }
   }
 `
