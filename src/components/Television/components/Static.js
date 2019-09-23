@@ -1,15 +1,15 @@
-import React, { useRef, useState, useEffect, useCallback } from "react"
+import React, { useRef, useState, useEffect, useCallback, memo } from "react"
 import styled, { keyframes } from "styled-components/macro"
 
 const Container = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
+  position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 `
 
 const Overlay = styled.div`
+  z-index: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -44,9 +44,10 @@ const Canvas = styled.canvas`
   width: 100%;
   height: 100%;
   opacity: 0.8;
+  background: black;
 `
 
-export default function Static(props) {
+export default memo(props => {
   const { on } = props
 
   const canvas = useRef()
@@ -99,4 +100,4 @@ export default function Static(props) {
       <Frame delay={8} />
     </Container>
   )
-}
+})

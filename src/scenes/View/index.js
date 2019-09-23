@@ -8,9 +8,16 @@ import { buildPlane } from "services/plane"
 
 import Camera from "./components/Camera"
 
-const Row = styled.div`
-  display: flex;
-  flex-direction: column;
+const PLANE_DIMENSION = 5
+
+const Container = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(${PLANE_DIMENSION * 2}, auto);
+  grid-template-rows: repeat(${PLANE_DIMENSION * 2}, auto);
 `
 
 export default function View(props) {
@@ -25,10 +32,10 @@ export default function View(props) {
   useEffect(() => {
     if (!plane) {
       const pages = [
-        { path: "", content: Main, coords: [4, 3], initOn: "true" },
-        { path: "about", content: About, coords: [2, 4] }
+        { path: "", content: Main, coords: [3, 3], initOn: "true" },
+        { path: "about", content: About, coords: [2, 4], initOn: "true" }
       ]
-      const builtPlane = buildPlane(pages, [8, 8])
+      const builtPlane = buildPlane(pages, [PLANE_DIMENSION, PLANE_DIMENSION])
       setPlane(builtPlane)
     }
   }, [plane])
@@ -39,10 +46,11 @@ export default function View(props) {
 
   return (
     <Camera page={page} plane={plane}>
-      {plane.map((row, x) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <Row key={`row-${x}`}>{row.map(item => renderItem(item))}</Row>
-      ))}
+      <Container>
+        {plane.map((row, x) => (
+          <>{row.map(item => renderItem(item))}</>
+        ))}
+      </Container>
     </Camera>
   )
 }

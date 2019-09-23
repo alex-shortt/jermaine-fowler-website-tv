@@ -4,22 +4,29 @@ import styled from "styled-components/macro"
 import { breatheAnim } from "../styles/animations"
 
 const Container = styled.div`
-  position: absolute;
-  width: 80vw;
-  left: 50%;
-  height: 80vw;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  background: radial-gradient(circle at center,#ffffff33,#ffffff00 60%) no-repeat;
-  pointer-events: none;
-  //animation: ${breatheAnim} 5s infinite ease-in-out;
-  transition: opacity 3s ease-out;
-  opacity: ${props => (props.on ? "0.9" : "0")};
+  width: 0;
+  height: 0;
+  position: relative;
+  z-index: 1;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: ${props => props.width}rem;
+    height: ${props => props.height}rem;
+    margin: 5px;
+    transform: scale(2);
+    z-index: 1;
+    background: radial-gradient(circle at center,#ffffff4f,#ffffff00 70%) no-repeat;
+    pointer-events: none;
+    //animation: ${breatheAnim} 5s infinite ease-in-out;
+    transition: opacity 3s ease-out;
+    opacity: ${props => (props.on ? "0.8" : "0")};
+  }
 `
 
 export default function Brightness(props) {
-  const { on } = props
+  const { on, height, width } = props
 
-  return <Container on={on} />
+  return <Container {...props} />
 }

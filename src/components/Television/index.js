@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react"
+import React, { useState, useCallback, memo } from "react"
 import styled from "styled-components/macro"
 
 import Brightness from "./components/Brightness"
@@ -15,7 +15,7 @@ const Container = styled.div`
   width: ${width}rem;
   height: ${height}rem;
   margin: 5px;
-  filter: brightness(${props => (props.on ? "1" : "0.7")});
+  filter: brightness(${props => (props.on ? "1" : "0.6")});
   ${props => props.hidden && "opacity: 0; display: block;"};
   transition: filter ${props => (props.on ? "5" : "0.7")}s ease-in;
 `
@@ -38,20 +38,22 @@ function Content(props) {
   return <></>
 }
 
-export default function Television(props) {
+export default memo(props => {
   const { children, hidden, initOn, broken, ...restProps } = props
 
-  const [on, setOn] = useState(initOn === "true")
+  const [on, setOn] = useState(hidden ? "false" : initOn === "true")
 
   const toggleOn = useCallback(() => setOn(!on), [on])
 
   return (
-    <Container hidden={hidden} on={on} {...restProps}>
-      <Brightness on={on} />
-      <Monitor on={on} onClick={toggleOn} />
-      <Display on={on}>
-        <Content {...props} />
-      </Display>
-    </Container>
+    <>
+      <Brightness on={on} width={width} height={height} />
+      <Container hidden={hidden} on={on} {...restProps}>
+        <Monitor on={on} onClick={!hidden && toggleOn} />
+        <Display on={on}>
+          <Content {...props} />
+        </Display>
+      </Container>
+    </>
   )
-}
+})
