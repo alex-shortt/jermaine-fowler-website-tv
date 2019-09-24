@@ -18,6 +18,11 @@ const Container = styled.div`
   filter: brightness(${props => (props.on ? "1" : "0.6")});
   ${props => props.hidden && "opacity: 0; display: block;"};
   transition: filter ${props => (props.on ? "5" : "0.7")}s ease-in;
+
+  @media screen and (max-width: 800px) {
+    width: 85vw;
+    height: ${85 * 0.9389}vw;
+  }
 `
 
 function Content(props) {

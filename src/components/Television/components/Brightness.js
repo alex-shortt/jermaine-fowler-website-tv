@@ -22,6 +22,11 @@ const Container = styled.div`
     //animation: ${breatheAnim} 5s infinite ease-in-out;
     transition: opacity 3s ease-out;
     opacity: ${props => (props.on ? "0.8" : "0")};
+    
+    @media screen and (max-width: 800px) {
+      width: 85vw;
+      height: ${85 * 0.9389}vw;
+    } 
   }
 `
 

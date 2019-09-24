@@ -22,6 +22,12 @@ const Button = styled.button`
 
   outline: none;
 
+  @media screen and (max-width: 800px) {
+    bottom: 4vw;
+    height: 6vw;
+    width: 6vw;
+  }
+
   &:active {
     background-image: linear-gradient(
       0deg,

@@ -11,6 +11,11 @@ const Container = styled.div`
   justify-content: space-evenly;
   align-items: center;
   filter: blur(0.7px) brightness(0.9);
+
+  @media screen and (max-width: 800px) {
+    bottom: 4vw;
+    height: 6vw;
+  }
 `
 
 const RedLED = styled.div`
@@ -24,6 +29,11 @@ const RedLED = styled.div`
       ? "rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 12px"
       : "rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #200909 0 -1px 14px 1px, rgba(255, 0, 0, 0.19) 0 2px 12px"};
   transition: 0.8s ease-out;
+
+  @media screen and (max-width: 800px) {
+    width: 12px;
+    height: 12px;
+  }
 `
 
 const BlueLED = styled.div`

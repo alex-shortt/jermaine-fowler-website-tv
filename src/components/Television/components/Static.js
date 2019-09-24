@@ -37,6 +37,7 @@ const Canvas = styled.canvas`
   height: 100%;
   opacity: 0.8;
   background: black;
+  object-fit: cover;
 `
 
 export default memo(props => {
