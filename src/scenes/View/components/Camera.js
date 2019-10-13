@@ -31,7 +31,7 @@ function getItemSideDimensions() {
 }
 
 export default function Camera(props) {
-  const { page, plane, children } = props
+  const { page, plane, children, setMoving } = props
 
   const [animTiming, setAnimTiming] = useState(1)
   const [posX, setPosX] = useState(0)
@@ -54,15 +54,19 @@ export default function Camera(props) {
       const yDist = Math.abs(posY - y)
       const linearDist = Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2))
 
+      setMoving("true")
       setAnimTiming(linearDist / velocity)
       setPosX(x)
       setPosY(y)
+
+      const timeout = (linearDist * 1000) / velocity + 2000
+      setTimeout(() => setMoving("false"), timeout)
     }
 
     fixPosition()
 
     window.onresize = fixPosition
-  }, [page, plane, posX, posY])
+  }, [page, plane, posX, posY, setMoving])
 
   return (
     <Container x={posX} y={posY} timing={animTiming}>

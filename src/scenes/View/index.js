@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useLayoutEffect } from "react"
 import styled from "styled-components/macro"
 
 import Television from "components/Television"
@@ -6,6 +6,7 @@ import Main from "scenes/Pages/Main"
 import About from "scenes/Pages/About"
 import Media from "scenes/Pages/Media"
 import Socials from "scenes/Pages/Socials"
+import Loading from "scenes/Loading"
 import { buildPlane } from "services/plane"
 
 import Camera from "./components/Camera"
@@ -30,6 +31,7 @@ export default function View(props) {
   } = props
 
   const [plane, setPlane] = useState(null)
+  const [moving, setMoving] = useState(null)
 
   useEffect(() => {
     if (!plane) {
@@ -55,13 +57,16 @@ export default function View(props) {
   }
 
   return (
-    <Camera page={page} plane={plane}>
-      <Container>
-        {plane.map((row, x) => (
-          <>{row.map(item => renderItem(item))}</>
-        ))}
-      </Container>
-    </Camera>
+    <>
+      <Loading moving={moving} />
+      <Camera page={page} plane={plane} setMoving={setMoving}>
+        <Container>
+          {plane.map((row, x) => (
+            <>{row.map(item => renderItem(item))}</>
+          ))}
+        </Container>
+      </Camera>
+    </>
   )
 }
 

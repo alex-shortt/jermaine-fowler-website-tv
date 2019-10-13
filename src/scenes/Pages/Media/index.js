@@ -16,7 +16,6 @@ export default function Media(props) {
   return (
     <Container>
       <img src="https://i.kinja-img.com/gawker-media/image/upload/s--fr1yz2bU--/c_scale,f_auto,fl_progressive,q_80,w_800/fu6j2fudczk5u5n6xarn.jpg" />
-      <img src="https://fordhamram.com/wp-content/uploads/2018/09/C-Sorry-to-Bother-You-Facebook.png" />
       <img src="https://s.abcnews.com/images/GMA/180705_gma_digital_jermaine_hpMain_16x9_992.jpg" />
       <br />
       <br />
