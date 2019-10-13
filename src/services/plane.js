@@ -33,12 +33,12 @@ export function buildPlane(pages, dimensions) {
 
 const pageNone = { hidden: true }
 const pageNormal = {}
-const pageBroken = { broken: true }
+const pageStatic = { broken: true }
 const pageSurveillance = { surveillance: true, initOn: "true" }
 
 function pickRandomPage() {
-  const pages = [pageNone, pageNormal, pageBroken, pageSurveillance]
-  const weights = [2, 7, 2, 2]
+  const pages = [pageNone, pageNormal, pageStatic, pageSurveillance]
+  const weights = [2, 6, 2, 2]
 
   const page = chance.weighted(pages, weights)
   if (!page.initOn) {

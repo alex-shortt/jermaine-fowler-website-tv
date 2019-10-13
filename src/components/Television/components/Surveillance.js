@@ -52,7 +52,7 @@ const Video = styled.video`
   left: 0;
   width: 100%;
   height: 100%;
-  filter: grayscale(1);
+  filter: grayscale(1) brightness(0.75);
   object-fit: cover;
   z-index: -1;
 `

@@ -4,6 +4,8 @@ import styled from "styled-components/macro"
 import Television from "components/Television"
 import Main from "scenes/Pages/Main"
 import About from "scenes/Pages/About"
+import Media from "scenes/Pages/Media"
+import Socials from "scenes/Pages/Socials"
 import { buildPlane } from "services/plane"
 
 import Camera from "./components/Camera"
@@ -33,7 +35,9 @@ export default function View(props) {
     if (!plane) {
       const pages = [
         { path: "", content: Main, coords: [3, 3], initOn: "true" },
-        { path: "about", content: About, coords: [2, 4], initOn: "true" }
+        { path: "about", content: About, coords: [2, 4], initOn: "true" },
+        { path: "media", content: Media, coords: [1, 2], initOn: "true" },
+        { path: "socials", content: Socials, coords: [0, 3], initOn: "true" }
       ]
       const builtPlane = buildPlane(pages, [PLANE_DIMENSION, PLANE_DIMENSION])
       setPlane(builtPlane)

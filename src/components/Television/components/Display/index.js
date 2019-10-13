@@ -36,7 +36,7 @@ const Content = styled.div`
   box-sizing: border-box;
   overflow-y: auto;
 
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: white;
   font-weight: 900;
   //filter: blur(0.5px);
@@ -46,6 +46,11 @@ const Content = styled.div`
   & a {
     text-decoration: none;
     transition: opacity 0.15s linear;
+
+    &:visited {
+      color: white !important;
+      opacity: 0.8;
+    }
 
     &:hover {
       opacity: 0.5;

@@ -36,8 +36,8 @@ export default function Main(props) {
       <Logo />
       <Links>
         <Link to="about">About</Link>
-        <Link to="about">Travel</Link>
-        <Link to="about">Learn</Link>
+        <Link to="socials">Socials</Link>
+        <Link to="media">Media</Link>
       </Links>
     </Container>
   )
