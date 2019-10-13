@@ -37,7 +37,13 @@ export default function View(props) {
         { path: "", content: Main, coords: [3, 3], initOn: "true" },
         { path: "about", content: About, coords: [2, 4], initOn: "true" },
         { path: "media", content: Media, coords: [1, 2], initOn: "true" },
-        { path: "socials", content: Socials, coords: [0, 3], initOn: "true" }
+        { path: "socials", content: Socials, coords: [0, 3], initOn: "true" },
+        {
+          path: ["tour", "interviews", "news"],
+          broken: true,
+          coords: [3, 4],
+          initOn: "true"
+        }
       ]
       const builtPlane = buildPlane(pages, [PLANE_DIMENSION, PLANE_DIMENSION])
       setPlane(builtPlane)

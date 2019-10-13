@@ -51,7 +51,9 @@ function pickRandomPage() {
 export function getPagePosition(plane, page = "") {
   for (let x = 0; x < plane.length; x += 1) {
     for (let y = 0; y < plane[x].length; y += 1) {
-      if (plane[x][y].path === page) {
+      const { path } = plane[x][y]
+      const isArray = path && typeof path === "object"
+      if (isArray ? path.includes(page) : path === page) {
         return [x, y]
       }
     }

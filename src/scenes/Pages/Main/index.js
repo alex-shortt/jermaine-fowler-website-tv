@@ -47,7 +47,7 @@ export default function Main(props) {
     <Container>
       <Logo />
       <Links>
-        <Link to="about">Tour</Link>
+        <Link to="tour">Tour</Link>
         <Link to="media">Media</Link>
         <Link to="interviews">Interviews</Link>
         <Link to="news">News</Link>
