@@ -49,23 +49,21 @@ export default function Camera(props) {
       const midYPos = height * 0.5 + height * newCoords[1]
       const y = -midYPos + window.innerHeight / 2
 
-      const velocity = 1.9 // wtf is this unit
+      const velocity = 2.1 // wtf is this unit
       const xDist = Math.abs(posX - x)
       const yDist = Math.abs(posY - y)
       const linearDist = Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2))
       const timing = linearDist / velocity / width
-
-      console.log(timing)
-
-      console.log(linearDist, velocity, width)
 
       setMoving("true")
       setAnimTiming(timing)
       setPosX(x)
       setPosY(y)
 
-      const timeout = timing * 1000 + 2000
-      setTimeout(() => setMoving("false"), timeout)
+      const timeout = timing * 1000
+      if (timeout !== 0) {
+        setTimeout(() => setMoving("false"), timeout)
+      }
     }
 
     fixPosition()
