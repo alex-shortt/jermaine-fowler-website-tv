@@ -36,7 +36,7 @@ export default function View(props) {
     if (!plane) {
       const pages = [
         { path: "", content: Main, coords: [3, 3], initOn: "true" },
-        { path: "media", content: Media, coords: [1, 2], initOn: "true" },
+        { path: "media", content: Media, coords: [2, 1], initOn: "true" },
         // { path: "about", content: About, coords: [2, 4], initOn: "true" },
         // { path: "socials", content: Socials, coords: [1, 3], initOn: "true" },
         {
@@ -70,10 +70,10 @@ export default function View(props) {
 }
 
 function renderItem(item) {
-  const { hidden, content: Content, id, ...itemProps } = item
+  const { hidden, content: Content, ...itemProps } = item
 
   return (
-    <Television className="television" key={id} {...itemProps}>
+    <Television className="television" {...itemProps}>
       {Content && <Content />}
     </Television>
   )

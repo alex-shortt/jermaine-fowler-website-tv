@@ -44,14 +44,14 @@ function Content(props) {
 }
 
 export default memo(props => {
-  const { children, hidden, initOn, broken, ...restProps } = props
+  const { children, hidden, initOn, broken, id, ...restProps } = props
 
   const [on, setOn] = useState(hidden ? "false" : initOn === "true")
 
   const toggleOn = useCallback(() => setOn(!on), [on])
 
   return (
-    <>
+    <React.Fragment key={id}>
       <Brightness on={on} width={width} height={height} />
       <Container hidden={hidden} on={on} {...restProps}>
         <Monitor on={on} onClick={!hidden && toggleOn} />
@@ -59,6 +59,6 @@ export default memo(props => {
           <Content on={on} {...props} />
         </Display>
       </Container>
-    </>
+    </React.Fragment>
   )
 })

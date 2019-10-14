@@ -18,7 +18,6 @@ export function buildPlane(pages, dimensions) {
       )
 
       if (fixedPage) {
-        console.log("fixed", fixedPage)
         plane[x][y] = fixedPage
       } else {
         plane[x][y] = pickRandomPage()
