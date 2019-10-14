@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, memo } from "react"
 import styled, { keyframes, css } from "styled-components/macro"
 
 const fadeOutAnim = keyframes`
@@ -32,7 +32,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   ${props => props.inPlace === "true" && fadeOutCont};
-  animation-delay: 1s;
+  animation-delay: 0.75s;
   ${props => props.inPlace === "true" && "pointer-events: none"};
 `
 
@@ -52,7 +52,7 @@ const Text = styled.h1`
   }
 `
 
-export default function Loading(props) {
+export default memo(props => {
   const { moving } = props
 
   const [inPlace, setInPlace] = useState("false")
@@ -63,11 +63,9 @@ export default function Loading(props) {
     }
   }, [inPlace, moving])
 
-  console.log(inPlace === "true")
-
   return (
     <Container inPlace={inPlace}>
-      <Text inPlace={inPlace}>Loading</Text>
+      <Text inPlace={inPlace}>LOADING</Text>
     </Container>
   )
-}
+})

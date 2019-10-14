@@ -37,13 +37,13 @@ export default function View(props) {
     if (!plane) {
       const pages = [
         { path: "", content: Main, coords: [3, 3], initOn: "true" },
-        { path: "about", content: About, coords: [2, 4], initOn: "true" },
         { path: "media", content: Media, coords: [1, 2], initOn: "true" },
-        { path: "socials", content: Socials, coords: [0, 3], initOn: "true" },
+        // { path: "about", content: About, coords: [2, 4], initOn: "true" },
+        // { path: "socials", content: Socials, coords: [1, 3], initOn: "true" },
         {
           path: ["tour", "interviews", "news"],
           broken: true,
-          coords: [3, 4],
+          coords: [0, 2],
           initOn: "true"
         }
       ]

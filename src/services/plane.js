@@ -42,7 +42,7 @@ function pickRandomPage() {
 
   const page = chance.weighted(pages, weights)
   if (!page.initOn) {
-    page.initOn = Math.random() > 0.8 ? "true" : "false"
+    page.initOn = Math.random() > 0.85 ? "true" : "false"
   }
 
   return { ...page }
