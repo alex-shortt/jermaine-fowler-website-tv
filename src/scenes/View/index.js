@@ -3,9 +3,8 @@ import styled from "styled-components/macro"
 
 import Television from "components/Television"
 import Main from "scenes/Pages/Main"
-import About from "scenes/Pages/About"
 import Media from "scenes/Pages/Media"
-import Socials from "scenes/Pages/Socials"
+import Soon from "scenes/Pages/Soon"
 import Loading from "scenes/Loading"
 import { buildPlane } from "services/plane"
 
@@ -42,7 +41,7 @@ export default function View(props) {
         // { path: "socials", content: Socials, coords: [1, 3], initOn: "true" },
         {
           path: ["tour", "interviews", "news"],
-          broken: true,
+          content: Soon,
           coords: [0, 2],
           initOn: "true"
         }
