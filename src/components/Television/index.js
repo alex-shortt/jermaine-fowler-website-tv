@@ -25,11 +25,19 @@ const Container = styled.div`
 `
 
 export default memo(props => {
-  const { initOn, id } = props
+  const { initOn, knobRange, id } = props
 
   const [on, setOn] = useState(initOn === "true")
-
   const toggleOn = useCallback(() => setOn(!on), [on])
+
+  const [knobValue, setKnobValue] = useState(1)
+  const turnKnob = useCallback(() => {
+    let newKnobval = knobValue + 1
+    if (newKnobval > knobRange) {
+      newKnobval = 1
+    }
+    setKnobValue(newKnobval)
+  }, [knobRange, knobValue])
 
   const values = {
     ...props,
@@ -37,7 +45,9 @@ export default memo(props => {
     height,
     on,
     setOn,
-    toggleOn
+    toggleOn,
+    knobValue,
+    turnKnob
   }
 
   return (

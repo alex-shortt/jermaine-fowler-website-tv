@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components/macro"
 
-const Button = styled.button`
+export default styled.button`
   z-index: 1;
   position: absolute;
   bottom: 7%;
@@ -39,7 +39,3 @@ const Button = styled.button`
       inset 0px 0px 7px rgba(255, 255, 255, 0.15);
   }
 `
-
-export default function PowerButton(props) {
-  return <Button {...props} />
-}

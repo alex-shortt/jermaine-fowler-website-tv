@@ -5,6 +5,7 @@ import MonitorImageURL from "assets/television/Monitor.png"
 
 import PowerButton from "./components/PowerButton"
 import Lights from "./components/Lights"
+import Knob from "./components/Knob"
 
 const MonitorImage = styled.img.attrs({ src: MonitorImageURL })`
   pointer-events: none;
@@ -18,12 +19,13 @@ const Container = styled.div`
 `
 
 export default function Monitor(props) {
-  const { on, toggleOn } = props
+  const { toggleOn, knob } = props
 
   return (
     <Container>
       <MonitorImage />
-      <Lights on={on} />
+      <Lights {...props} />
+      {knob && <Knob {...props} />}
       <PowerButton onClick={toggleOn} />
     </Container>
   )

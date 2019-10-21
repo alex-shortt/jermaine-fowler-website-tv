@@ -5,7 +5,7 @@ const Container = styled.div`
   position: absolute;
   bottom: 7%;
   left: 10%;
-  width: 25%;
+  width: ${props => (props.knob ? "auto" : "25%")};
   height: 5%;
   display: flex;
   justify-content: space-evenly;
@@ -57,10 +57,10 @@ const YellowLED = styled.div`
 `
 
 export default function Lights(props) {
-  const { on } = props
+  const { on, knob } = props
 
   return (
-    <Container>
+    <Container knob={knob}>
       <RedLED on={on} />
       {/* <BlueLED /> */}
       {/* <YellowLED /> */}
