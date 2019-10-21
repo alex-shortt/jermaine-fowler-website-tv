@@ -12,6 +12,10 @@ const Container = styled.div`
   text-align: center;
   width: 80%;
   box-sizing: border-box;
+
+  @media screen and (max-width: 650px) {
+    font-size: 0.9rem;
+  }
 `
 
 export default function Overlay(props) {

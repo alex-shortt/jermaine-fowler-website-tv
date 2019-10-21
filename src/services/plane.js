@@ -17,7 +17,7 @@ export function renderPlane(plane) {
     )
   }
 
-  return plane.map((row, x) => <>{row.map(item => renderItem(item))}</>)
+  return plane.map(row => <>{row.map(item => renderItem(item))}</>)
 }
 
 export function buildPlane(pages, dimensions) {
