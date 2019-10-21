@@ -60,8 +60,6 @@ const Video = styled.video`
 const videos = [barVideo, streetVideo, restaurantVideo]
 
 export default function Surveillance(props) {
-  const { on } = props
-
   const [time, setTime] = useState()
   const src = useRef(videos[Math.floor(Math.random() * videos.length)])
 

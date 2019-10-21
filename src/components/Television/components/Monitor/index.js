@@ -18,13 +18,13 @@ const Container = styled.div`
 `
 
 export default function Monitor(props) {
-  const { on, onClick } = props
+  const { on, toggleOn } = props
 
   return (
     <Container>
-      <MonitorImage {...props} />
+      <MonitorImage />
       <Lights on={on} />
-      <PowerButton onClick={onClick} />
+      <PowerButton onClick={toggleOn} />
     </Container>
   )
 }

@@ -4,8 +4,7 @@ import styled from "styled-components/macro"
 import Brightness from "./components/Brightness"
 import Monitor from "./components/Monitor"
 import Display from "./components/Display"
-import Static from "./components/Static"
-import Surveillance from "./components/Surveillance"
+import Content from "./components/Content"
 
 const width = 36
 const height = width * 0.9389
@@ -25,38 +24,29 @@ const Container = styled.div`
   }
 `
 
-function Content(props) {
-  const { children, on, broken, surveillance } = props
-
-  if (children) {
-    return <>{children}</>
-  }
-
-  if (broken) {
-    return <Static on={on} />
-  }
-
-  if (surveillance) {
-    return <Surveillance on={on} />
-  }
-
-  return <></>
-}
-
 export default memo(props => {
-  const { children, hidden, initOn, broken, id, ...restProps } = props
+  const { initOn, id } = props
 
-  const [on, setOn] = useState(hidden ? "false" : initOn === "true")
+  const [on, setOn] = useState(initOn === "true")
 
   const toggleOn = useCallback(() => setOn(!on), [on])
 
+  const values = {
+    ...props,
+    width,
+    height,
+    on,
+    setOn,
+    toggleOn
+  }
+
   return (
     <React.Fragment key={id}>
-      <Brightness on={on} width={width} height={height} />
-      <Container hidden={hidden} on={on} {...restProps}>
-        <Monitor on={on} onClick={!hidden && toggleOn} />
-        <Display on={on}>
-          <Content on={on} {...props} />
+      <Brightness {...values} />
+      <Container {...values}>
+        <Monitor {...values} />
+        <Display {...values}>
+          <Content {...values} />
         </Display>
       </Container>
     </React.Fragment>

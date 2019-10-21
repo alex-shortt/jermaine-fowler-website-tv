@@ -33,5 +33,5 @@ const Container = styled.div`
 export default function Brightness(props) {
   const { on, height, width } = props
 
-  return <Container {...props} />
+  return <Container on={on} height={height} width={width} />
 }
