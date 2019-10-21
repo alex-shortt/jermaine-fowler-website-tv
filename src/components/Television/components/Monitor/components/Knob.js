@@ -13,8 +13,10 @@ const Container = styled.div`
   width: 34px;
 
   @media screen and (max-width: 800px) {
-    bottom: 4vw;
-    height: 6vw;
+    bottom: 2.5vw;
+    height: 5vw;
+    width: 5vw;
+    padding: 1.25vw;
   }
 `
 
@@ -38,11 +40,6 @@ const KnobButton = styled.button`
     rgb(35, 35, 50) 100%
   );
 
-  @media screen and (max-width: 800px) {
-    height: 6vw;
-    width: 6vw;
-  }
-
   &:after {
     content: "";
     width: 0;
@@ -56,6 +53,12 @@ const KnobButton = styled.button`
     left: 50%;
     transform: translateX(-50%);
     mix-blend-mode: exclusion;
+
+    @media screen and (max-width: 800px) {
+      border-left: 1vw solid transparent;
+      border-right: 1vw solid transparent;
+      border-bottom: 1.5vw solid white;
+    }
   }
 
   &:before {
@@ -96,6 +99,7 @@ const Indicator = styled.div`
   top: 50%;
   left: -50%;
   transform: translate(${props => `${props.x}%, ${props.y}%`});
+  opacity: 0.6;
 
   &:after {
     content: "";
@@ -107,6 +111,11 @@ const Indicator = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @media screen and (max-width: 600px) {
+      width: 3px;
+      height: 3px;
+    }
   }
 `
 
@@ -121,7 +130,9 @@ function Indicators(props) {
     indicators.push([x, y])
   }
 
-  return indicators.map(coords => <Indicator x={coords[0]} y={coords[1]} />)
+  return indicators.map(coords => (
+    <Indicator key={`${coords[0]}-${coords[1]}`} x={coords[0]} y={coords[1]} />
+  ))
 }
 
 export default function Knob(props) {
