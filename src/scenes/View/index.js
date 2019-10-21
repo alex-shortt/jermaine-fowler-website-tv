@@ -20,7 +20,13 @@ const Camera = styled(CameraBase)`
 
 const pages = [
   { path: "", content: Main, coords: [3, 3] },
-  { path: "media", knob: true, knobRange: 8, content: Media, coords: [2, 1] },
+  {
+    path: "media",
+    knob: true,
+    knobRange: 5,
+    knobSelect: "video",
+    coords: [2, 1]
+  },
   { path: ["tour", "interviews", "news"], content: Soon, coords: [0, 2] }
 ]
 

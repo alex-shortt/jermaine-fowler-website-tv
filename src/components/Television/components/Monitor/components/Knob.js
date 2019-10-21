@@ -123,10 +123,10 @@ function Indicators(props) {
   const { knobRange } = props
 
   const indicators = []
-  for (let i = 1; i <= knobRange; i += 1) {
+  for (let i = 0; i < knobRange; i += 1) {
     const angle = (i / knobRange) * 2 * Math.PI
-    const x = 50 * Math.cos(angle) + 50
-    const y = -1 * (50 * Math.sin(angle) + 50)
+    const x = 50 * Math.sin(angle) + 50
+    const y = -1 * (50 * Math.cos(angle) + 50)
     indicators.push([x, y])
   }
 
