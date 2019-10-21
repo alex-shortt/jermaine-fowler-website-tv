@@ -42,8 +42,8 @@ export default memo(props => {
 
   return (
     <React.Fragment key={id}>
-      <Brightness {...values} />
-      <Container {...values}>
+      <Brightness {...values} id={`${id}-brightness`} />
+      <Container {...values} key={`${id}-container`}>
         <Monitor {...values} />
         <Display {...values}>
           <Content {...values} />

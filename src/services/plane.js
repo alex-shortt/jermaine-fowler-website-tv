@@ -1,5 +1,5 @@
 import React from "react"
-import uuid from "uuid/v1"
+import uuid from "uuid/v4"
 import Chance from "chance"
 
 import Television from "../components/Television"
@@ -17,7 +17,14 @@ export function renderPlane(plane) {
     )
   }
 
-  return plane.map(row => <>{row.map(item => renderItem(item))}</>)
+  return plane.map(row => {
+    const id = getRowId(row)
+    return (
+      <React.Fragment key={id}>
+        {row.map(item => renderItem(item))}
+      </React.Fragment>
+    )
+  })
 }
 
 export function buildPlane(pages, dimensions) {
@@ -34,7 +41,7 @@ export function buildPlane(pages, dimensions) {
       )
 
       if (fixedPage) {
-        plane[x][y] = fixedPage
+        plane[x][y] = { ...fixedPage, initOn: "true" }
       } else {
         plane[x][y] = pickRandomPage()
       }
@@ -71,4 +78,12 @@ export function getPagePosition(plane, page = "") {
   }
 
   return null
+}
+
+export function getRowId(row) {
+  let id = ""
+  for (const item of row) {
+    id += item.id
+  }
+  return id
 }

@@ -19,14 +19,9 @@ const Camera = styled(CameraBase)`
 `
 
 const pages = [
-  { path: "", content: Main, coords: [3, 3], initOn: "true" },
-  { path: "media", content: Media, coords: [2, 1], initOn: "true" },
-  {
-    path: ["tour", "interviews", "news"],
-    content: Soon,
-    coords: [0, 2],
-    initOn: "true"
-  }
+  { path: "", content: Main, coords: [3, 3] },
+  { path: "media", content: Media, coords: [2, 1] },
+  { path: ["tour", "interviews", "news"], content: Soon, coords: [0, 2] }
 ]
 
 export default function View(props) {
