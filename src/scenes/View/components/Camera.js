@@ -31,7 +31,7 @@ function getItemSideDimensions() {
 }
 
 export default function Camera(props) {
-  const { page, plane, children, setMoving } = props
+  const { page, plane, children, setMoving, ...restProps } = props
 
   const [animTiming, setAnimTiming] = useState(1)
   const [posX, setPosX] = useState(0)
@@ -72,7 +72,7 @@ export default function Camera(props) {
   }, [page, plane, posX, posY, setMoving])
 
   return (
-    <Container x={posX} y={posY} timing={animTiming}>
+    <Container x={posX} y={posY} timing={animTiming} {...restProps}>
       {children}
     </Container>
   )

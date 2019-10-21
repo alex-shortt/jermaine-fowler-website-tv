@@ -2,7 +2,23 @@ import React from "react"
 import uuid from "uuid/v1"
 import Chance from "chance"
 
+import Television from "../components/Television"
+
 const chance = new Chance()
+
+export function renderPlane(plane) {
+  function renderItem(item) {
+    const { hidden, content: Content, ...itemProps } = item
+
+    return (
+      <Television className="television" {...itemProps}>
+        {Content && <Content />}
+      </Television>
+    )
+  }
+
+  return plane.map((row, x) => <>{row.map(item => renderItem(item))}</>)
+}
 
 export function buildPlane(pages, dimensions) {
   const plane = []
