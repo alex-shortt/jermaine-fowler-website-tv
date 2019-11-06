@@ -1,7 +1,9 @@
 import React from "react"
 import styled from "styled-components/macro"
 
-export default styled.button`
+import powerImg from "assets/television/power.png"
+
+const Button = styled.button`
   z-index: 1;
   position: absolute;
   bottom: 7%;
@@ -39,3 +41,20 @@ export default styled.button`
       inset 0px 0px 7px rgba(255, 255, 255, 0.15);
   }
 `
+
+const Image = styled.img.attrs({ src: powerImg })`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  opacity: 0.5;
+  margin: 20%;
+`
+
+export default function PowerButton(props) {
+  return (
+    <Button {...props}>
+      <Image />
+    </Button>
+  )
+}
