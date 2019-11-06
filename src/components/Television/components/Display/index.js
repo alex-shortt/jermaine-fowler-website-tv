@@ -16,8 +16,8 @@ const Container = styled.div`
   position: absolute;
   width: 87.5%;
   left: 6.5%;
-  height: 71%;
-  top: 11.5%;
+  height: 71.4%;
+  top: 11.3%;
   filter: brightness(1.2);
   overflow: hidden;
   background: black;

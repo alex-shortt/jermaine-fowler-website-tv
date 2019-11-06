@@ -4,7 +4,7 @@ import styled from "styled-components/macro"
 const Container = styled.div`
   position: absolute;
   bottom: 3%;
-  left: 23%;
+  left: 26%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -119,6 +119,20 @@ const Indicator = styled.div`
   }
 `
 
+const Text = styled.p`
+  color: white;
+  margin: 0;
+  position: absolute;
+  bottom: 6.3%;
+  left: 9%;
+  opacity: 0.6;
+  font-family: sans-serif;
+
+  @media screen and (max-width: 600px) {
+    font-size: 2.5vw;
+  }
+`
+
 function Indicators(props) {
   const { knobRange } = props
 
@@ -139,9 +153,12 @@ export default function Knob(props) {
   const { knobRange, knobValue, turnKnob } = props
 
   return (
-    <Container>
-      <Indicators {...props} />
-      <KnobButton onClick={turnKnob} rot={(knobValue / knobRange) * 360} />
-    </Container>
+    <>
+      <Container>
+        <Indicators {...props} />
+        <KnobButton onClick={turnKnob} rot={(knobValue / knobRange) * 360} />
+      </Container>
+      <Text>CHANNEL</Text>
+    </>
   )
 }

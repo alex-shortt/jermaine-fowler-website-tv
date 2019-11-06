@@ -4,7 +4,8 @@ import styled from "styled-components/macro"
 const Container = styled.div`
   position: absolute;
   bottom: 7%;
-  left: 10%;
+  left: ${props => (props.knob ? "" : "10%")};
+  right: ${props => (props.knob ? "12%" : "")};
   width: ${props => (props.knob ? "auto" : "25%")};
   height: 5%;
   display: flex;
