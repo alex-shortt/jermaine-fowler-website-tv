@@ -22,7 +22,8 @@ const Logo = styled.img.attrs({ src: logoPic })`
 `
 
 const Links = styled.div`
-  width: 100%;
+  width: 90%;
+  max-width: 250px;
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
@@ -35,6 +36,9 @@ const Link = styled(LinkBase)`
   color: white;
   margin: 0 0.5rem;
   line-height: 1.3em;
+  padding: 2px 4px;
+  width: 100%;
+  text-align: center;
 
   @media screen and (max-width: 600px) {
     font-size: 1rem;
@@ -47,10 +51,18 @@ export default function Main(props) {
     <Container>
       <Logo />
       <Links>
-        <Link to="tour">Tour</Link>
-        <Link to="media">Media</Link>
-        <Link to="interviews">Interviews</Link>
-        <Link to="news">News</Link>
+        <Link to="tour" style={{ background: "#c002c0" }}>
+          Tour
+        </Link>
+        <Link to="interviews" style={{ background: "#35c000" }}>
+          Interviews
+        </Link>
+        <Link to="pieces" style={{ background: "#1e00c0" }}>
+          Pieces
+        </Link>
+        <Link to="news" style={{ background: "#c00000" }}>
+          News
+        </Link>
       </Links>
     </Container>
   )
