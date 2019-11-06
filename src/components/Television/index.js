@@ -14,7 +14,7 @@ const Container = styled.div`
   width: ${width}rem;
   height: ${height}rem;
   margin: 5px;
-  filter: brightness(${props => (props.on ? "1" : "0.6")});
+  filter: brightness(${props => (props.on ? "1" : "0.45")});
   ${props => props.hidden && "opacity: 0; display: block;"};
   transition: filter ${props => (props.on ? "5" : "0.7")}s ease-in;
 

@@ -15,7 +15,7 @@ export default createGlobalStyle`
   body {
     font-family: "VCR", Avenir, Lato, Roboto, sans-serif;
     overflow: auto;
-    background: #070707;
+    background: black;
   }
   
   html, body {
