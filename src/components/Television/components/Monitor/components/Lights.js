@@ -11,7 +11,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  filter: blur(0.7px) brightness(0.9);
+  filter: blur(0.7px) brightness(1.3);
 
   @media screen and (max-width: 800px) {
     bottom: 4vw;
