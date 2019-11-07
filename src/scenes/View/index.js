@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import styled from "styled-components/macro"
 
 import Main from "scenes/Pages/Main"
-import Media from "scenes/Pages/Media"
 import Soon from "scenes/Pages/Soon"
 import Loading from "scenes/Loading"
 import { buildPlane, renderPlane } from "services/plane"
