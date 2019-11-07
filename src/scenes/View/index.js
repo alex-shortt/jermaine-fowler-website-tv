@@ -3,6 +3,7 @@ import styled from "styled-components/macro"
 
 import Main from "scenes/Pages/Main"
 import Soon from "scenes/Pages/Soon"
+import Pieces from "scenes/Pages/Pieces"
 import Loading from "scenes/Loading"
 import { buildPlane, renderPlane } from "services/plane"
 
@@ -27,7 +28,7 @@ const pages = [
     coords: [2, 1]
   },
   {
-    content: Soon,
+    content: Pieces,
     path: "pieces",
     coords: [3, 0]
   },
