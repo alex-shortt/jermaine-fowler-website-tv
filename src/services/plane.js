@@ -60,7 +60,7 @@ const pageCandid = { candid: true, initOn: "true" }
 
 function pickRandomPage() {
   const pages = [pageNormal, pageStatic, pageSurveillance, pageCandid]
-  const weights = [5, 1.8, 2, 2]
+  const weights = [5.4, 1.8, 1.5, 2.9]
 
   const page = chance.weighted(pages, weights)
 
