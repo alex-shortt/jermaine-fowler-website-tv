@@ -11,7 +11,7 @@ const Container = styled.div`
   flex-direction: column;
 `
 
-const IFrame = styled.iframe`
+const IFrame = styled.iframe.attrs({ allowFullscreen: "true" })`
   position: relative;
   width: 100%;
   height: 100%;
@@ -24,20 +24,13 @@ const TopRow = styled.div`
   text-align: center;
 `
 
-const videos = [
-  "https://drive.google.com/file/d/1k3jt5omUSJ3nOZF79_Hreu5AbhOdLXRQ/preview",
-  "https://drive.google.com/file/d/1JYiRw7ARNkLp4e-LmuW-5_TIIlmvQxFK/preview",
-  "https://drive.google.com/file/d/1Syj5tOyjYLXhLyFzc1f6zqd3c1XMHl74/preview",
-  "https://drive.google.com/file/d/124aqH7iM91soqjvAJMzkjikWplaJm5Ct/preview"
-]
-
 export default function VideoSelect(props) {
-  const { knobValue } = props
+  const { videos, knobValue } = props
 
   return (
     <Container>
       <TopRow>
-        <Link to="">Return To Home</Link>
+        <Link to="">Return To Menu</Link>
       </TopRow>
       <IFrame src={videos[knobValue - 1]} />
     </Container>

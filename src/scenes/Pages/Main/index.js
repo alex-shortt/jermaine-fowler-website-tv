@@ -51,17 +51,17 @@ export default function Main(props) {
     <Container>
       <Logo />
       <Links>
-        <Link to="tour" style={{ background: "#c002c0" }}>
-          Tour
+        <Link to="media" style={{ background: "#1e00c0" }}>
+          Media
         </Link>
         <Link to="interviews" style={{ background: "#35c000" }}>
           Interviews
         </Link>
-        <Link to="pieces" style={{ background: "#1e00c0" }}>
-          Pieces
-        </Link>
         <Link to="news" style={{ background: "#c00000" }}>
           News
+        </Link>
+        <Link to="tour" style={{ background: "#c002c0" }}>
+          Tour
         </Link>
       </Links>
     </Container>

@@ -6,7 +6,7 @@ import VideoSelect from "./components/VideoSelect"
 import Candid from "./components/Candid"
 
 export default function Content(props) {
-  const { children, broken, surveillance, candid, knob, knobSelect } = props
+  const { children, broken, surveillance, candid, knob, videos } = props
 
   if (children) {
     return <>{children}</>
@@ -24,7 +24,7 @@ export default function Content(props) {
     return <Candid {...props} />
   }
 
-  if (knob && knobSelect === "video") {
+  if (knob && videos) {
     return <VideoSelect {...props} />
   }
 

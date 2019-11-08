@@ -3,10 +3,10 @@ import styled from "styled-components/macro"
 
 import Main from "scenes/Pages/Main"
 import Soon from "scenes/Pages/Soon"
-import Pieces from "scenes/Pages/Pieces"
 import Loading from "scenes/Loading"
 import { buildPlane, renderPlane } from "services/plane"
 
+import { interviews, media } from "./assets/videos"
 import CameraBase from "./components/Camera"
 
 const PLANE_DIMENSION = 5
@@ -23,16 +23,18 @@ const pages = [
   {
     path: "interviews",
     knob: true,
-    knobRange: 5,
-    knobSelect: "video",
-    coords: [2, 1]
+    videos: interviews,
+    knobRange: interviews.length,
+    coords: [1, 1]
   },
   {
-    content: Pieces,
-    path: "pieces",
-    coords: [3, 0]
+    path: "media",
+    knob: true,
+    videos: media,
+    knobRange: media.length,
+    coords: [4, 0]
   },
-  { path: ["tour", "news"], content: Soon, coords: [0, 2] }
+  { path: ["tour", "news"], content: Soon, coords: [0, 3] }
 ]
 
 export default function View(props) {
