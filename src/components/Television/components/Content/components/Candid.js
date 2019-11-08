@@ -8,8 +8,10 @@ import img4 from "assets/candids/4.jpg"
 import img5 from "assets/candids/5.jpg"
 import img6 from "assets/candids/6.jpg"
 import img7 from "assets/candids/7.jpg"
+import img8 from "assets/candids/8.jpg"
+import img9 from "assets/candids/9.jpg"
 
-const images = [img1, img2, img3, img4, img5, img6, img7]
+const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9]
 
 const Container = styled.div`
   width: 100%;
